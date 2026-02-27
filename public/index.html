@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- ── SEO: Open Graph (WhatsApp / chat link previews) ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Nomada — The first Latino party with open bar 🔥" />
+  <meta property="og:description" content="Only 300 spots. Something exclusive is happening in March. Get on the list first." />
+  <meta property="og:image"       content="https://your-cloudflare-domain.pages.dev/images/og-preview.jpg" />
+  <meta property="og:url"         content="https://your-cloudflare-domain.pages.dev" />
+  <meta property="og:site_name"   content="Nomada" />
+
+  <!-- WhatsApp specifically reads og: tags — no extra tags needed -->
+
+  <title>Nomada — Something is coming</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+  <!-- Background ambient orbs (CSS-only animation) -->
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <!-- ── Language Switcher ────────────────────── -->
+  <div class="lang-switcher" role="navigation" aria-label="Language selector">
+    <button
+      id="lang-btn"
+      class="lang-btn"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-controls="lang-dropdown"
+    >
+      <span id="lang-btn-label">EN</span>
+      <span class="lang-btn-arrow" aria-hidden="true">▾</span>
+    </button>
+
+    <div
+      id="lang-dropdown"
+      class="lang-dropdown"
+      role="listbox"
+      aria-label="Choose language"
+    >
+      <button class="lang-option is-active" data-lang="en" role="option">
+        <span class="lang-flag">🇺🇸</span> English
+      </button>
+      <button class="lang-option" data-lang="es" role="option">
+        <span class="lang-flag">🇨🇴</span> Español
+      </button>
+      <button class="lang-option" data-lang="pt" role="option">
+        <span class="lang-flag">🇧🇷</span> Português
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Main page wrapper ────────────────────── -->
+  <main class="page">
+    <div class="content">
+
+      <!-- Tagline -->
+      <p class="tagline" data-i18n="tagline">The first Latino party with open bar</p>
+
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <img
+          src="/images/nomada-logo.png"
+          alt="Nomada"
+          class="logo"
+          width="220"
+          height="80"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Headline -->
+      <h1 class="headline" data-i18n="headline">
+        Think you ready to bring good old LATAM cover parties just like back home?
+      </h1>
+
+      <!-- ── Waitlist Box ────────────────────── -->
+      <div class="waitlist-box" role="region" aria-label="Join waitlist">
+
+        <h2 class="waitlist-title" data-i18n="joinWaitlist">Join waitlist</h2>
+
+        <!-- Email input -->
+        <div class="input-group">
+          <label class="input-label" for="email-input" data-i18n="joinWithEmail">Join with email</label>
+          <input
+            id="email-input"
+            class="input-field"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="your@email.com"
+            data-placeholder-i18n="emailPlaceholder"
+            aria-describedby="email-ghost email-error"
+          />
+          <span id="email-ghost" class="input-ghost" aria-live="polite"></span>
+          <span id="email-error" class="input-error" role="alert" aria-live="assertive"></span>
+        </div>
+
+        <!-- Or divider -->
+        <div class="or-divider">
+          <span data-i18n="or">or</span>
+        </div>
+
+        <!-- Instagram input -->
+        <div class="input-group">
+          <label class="input-label" for="insta-input" data-i18n="instagramAccount">Instagram account</label>
+          <input
+            id="insta-input"
+            class="input-field"
+            type="text"
+            inputmode="text"
+            autocapitalize="none"
+            autocorrect="off"
+            spellcheck="false"
+            placeholder="@yourusername"
+            data-placeholder-i18n="instagramPlaceholder"
+            aria-describedby="insta-ghost insta-error"
+          />
+          <span id="insta-ghost" class="input-ghost" aria-live="polite"></span>
+          <span id="insta-error" class="input-error" role="alert" aria-live="assertive"></span>
+        </div>
+
+      </div>
+      <!-- /waitlist-box -->
+
+      <!-- Submit button — outside the box -->
+      <button id="submit-btn" class="submit-btn" data-i18n="submitButton">
+        Count me in
+      </button>
+
+    </div>
+    <!-- /content -->
+
+    <!-- ── Footer ─────────────────────────────── -->
+    <footer class="site-footer">
+      <p data-i18n="footer">© 2025 Nomada. Something is coming.</p>
+    </footer>
+
+  </main>
+
+  <!-- ── Success Modal ──────────────────────── -->
+  <div
+    id="modal-overlay"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    aria-describedby="modal-message"
+  >
+    <div class="modal">
+      <h2 id="modal-title" class="modal-title">ARRRRECHO 🔥</h2>
+      <p id="modal-message" class="modal-message"></p>
+      <button id="modal-close-btn" class="modal-close-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Entry point — type="module" enables ES6 imports -->
+  <script type="module" src="/js/main.js"></script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,12 @@
+{
+    "customFileOrder.rules": {
+        "c:\\Users\\danie\\Downloads\\nomada_waitlist\\public": {
+            "order": [
+                "css",
+                "js",
+                "images"
+            ],
+            "type": "manual"
+        }
+    }
+}

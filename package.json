@@ -1,0 +1,14 @@
+{
+  "name": "nomada-waitlist",
+  "version": "1.0.0",
+  "description": "Nomada - The first Latin open bar party. Waitlist signup.",
+  "scripts": {
+    "dev": "live-server public/ --port=5500 --host=localhost --open=index.html",
+    "start": "live-server public/ --port=5500 --host=localhost"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "author": "Nomada",
+  "license": "MIT"
+}

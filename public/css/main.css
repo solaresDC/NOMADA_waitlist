@@ -1,0 +1,12 @@
+/**
+ * Nomada Waitlist — Main Stylesheet
+ * Import order matters: base → layout → components → page
+ */
+
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./layout/page.css');
+@import url('./components/lang-switcher.css');
+@import url('./components/waitlist-box.css');
+@import url('./components/modal.css');
+@import url('./pages/index.css');

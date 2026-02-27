@@ -1,0 +1,128 @@
+/**
+ * Nomada Waitlist — Page Layout
+ * Mobile-first: base → tablet (48em) → laptop (64em)
+ */
+
+/* ── Page Shell ──────────────────────────────────── */
+.page {
+  min-height: 100dvh;
+  background: var(--gradient-page);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow in background */
+.page::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw;
+  height: 80vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(ellipse, rgba(0, 217, 255, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Content container ───────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container-max);
+  padding: var(--space-xl) var(--container-pad) var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+/* ── Typography helpers ──────────────────────────── */
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Tagline (first text below language button) ─── */
+.tagline {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-cyan);
+  text-align: center;
+  margin-top: var(--space-xs);
+}
+
+/* ── Logo ────────────────────────────────────────── */
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo {
+  width: clamp(140px, 50vw, 220px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(var(--shadow-glow-cyan));
+}
+
+/* ── Headline ────────────────────────────────────── */
+.headline {
+  font-size: var(--font-size-hero);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  max-width: 440px;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  padding: var(--space-lg) var(--container-pad);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-card-border);
+  margin-top: auto;
+}
+
+/* ── Responsive: Tablet ──────────────────────────── */
+@media (min-width: 48em) {
+  .content {
+    gap: var(--space-2xl);
+    padding-top: var(--space-2xl);
+  }
+
+  .logo {
+    width: 240px;
+  }
+}
+
+/* ── Responsive: Laptop ──────────────────────────── */
+@media (min-width: 64em) {
+  .content {
+    max-width: 600px;
+    padding-top: var(--space-3xl);
+  }
+
+  .logo {
+    width: 280px;
+  }
+
+  .headline {
+    max-width: 520px;
+  }
+}

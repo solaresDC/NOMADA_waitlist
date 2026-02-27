@@ -1,0 +1,101 @@
+/**
+ * Language Switcher — Expandable button top-right corner
+ */
+
+/* ── Positioning wrapper ─────────────────────────── */
+.lang-switcher {
+  position: fixed;
+  top: var(--space-md);
+  right: var(--space-md);
+  z-index: var(--z-lang-dropdown);
+}
+
+/* ── Trigger button ──────────────────────────────── */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.4rem 0.75rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(8px);
+  transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.lang-btn:hover,
+.lang-btn[aria-expanded="true"] {
+  border-color: var(--color-accent-cyan);
+  box-shadow: var(--shadow-glow-cyan);
+  background: rgba(0, 217, 255, 0.08);
+}
+
+.lang-btn-arrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  transition: transform var(--transition-fast);
+}
+
+.lang-btn[aria-expanded="true"] .lang-btn-arrow {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown panel ──────────────────────────────── */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 140px;
+  background: var(--color-bg-purple);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+
+  /* Hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.97);
+  transform-origin: top right;
+  transition:
+    opacity var(--transition-fast),
+    visibility var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.lang-dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* ── Language options ────────────────────────────── */
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 0.65rem var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  transition: background var(--transition-fast);
+  text-align: left;
+}
+
+.lang-option:hover {
+  background: var(--color-card-bg);
+}
+
+.lang-option.is-active {
+  color: var(--color-accent-cyan);
+  background: rgba(0, 217, 255, 0.07);
+}
+
+.lang-flag {
+  font-size: 1.1rem;
+  line-height: 1;
+}
