@@ -17,7 +17,7 @@ export const translations = {
     
     // Input placeholders
     emailPlaceholder: 'your@email.com',
-    instagramPlaceholder: '@yourusername',
+    instagramPlaceholder: 'yourusername',
     
     // Ghost validation text
     ghostSure: 'Be sure it is right',
@@ -55,7 +55,7 @@ export const translations = {
     instagramAccount: 'Cuenta de Instagram',
     
     emailPlaceholder: 'tu@email.com',
-    instagramPlaceholder: '@tunombre',
+    instagramPlaceholder: 'tunombre',
     
     ghostSure: 'Asegúrate de que esté bien escrito',
     ghostInstagram: 'Asegúrate de que esté bien — y prepárate para recibir una solicitud de seguimiento de @nomada, o pon tu cuenta en público',
@@ -87,7 +87,7 @@ export const translations = {
     instagramAccount: 'Conta do Instagram',
     
     emailPlaceholder: 'seu@email.com',
-    instagramPlaceholder: '@seuusuario',
+    instagramPlaceholder: 'seuusuario',
     
     ghostSure: 'Verifique se está correto',
     ghostInstagram: 'Verifique se está correto — e esteja pronto para receber uma solicitação de @nomada, ou deixe sua conta pública',

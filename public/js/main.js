@@ -93,6 +93,11 @@ emailInput.addEventListener('input', () => {
 });
 
 instaInput.addEventListener('input', () => {
+  // Strip @ if user types it anyway
+  if (instaInput.value.startsWith('@')) {
+    instaInput.value = instaInput.value.replace(/^@+/, '');
+  }
+
   const val = instaInput.value;
   const show = val.length > 0;
   instaGhost.textContent = t(lang, 'ghostInstagram');

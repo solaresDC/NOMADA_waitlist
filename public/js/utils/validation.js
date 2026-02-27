@@ -2,7 +2,7 @@
  * Input validation utilities
  */
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const EMAIL_DOMAIN_REGEX = /@(gmail|hotmail|yahoo|outlook|icloud|live|msn|aol)\./i;
 
 /**
@@ -28,7 +28,9 @@ export function detectInputType(value) {
  */
 export function validateEmail(value) {
   const trimmed = value.trim();
-  if (!EMAIL_REGEX.test(trimmed)) {
+  // Must have something@something.something
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!trimmed || !EMAIL_REGEX.test(trimmed)) {
     return { valid: false, error: 'invalidEmail' };
   }
   return { valid: true };
