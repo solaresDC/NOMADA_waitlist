@@ -2,13 +2,12 @@
  * Input validation utilities
  */
 
-
+// ✅ Defined at the top so ALL functions can use it
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const EMAIL_DOMAIN_REGEX = /@(gmail|hotmail|yahoo|outlook|icloud|live|msn|aol)\./i;
 
 /**
  * Detect whether input looks like an email or Instagram handle
- * @param {string} value
- * @returns {'email' | 'instagram' | 'unknown'}
  */
 export function detectInputType(value) {
   const trimmed = value.trim();
@@ -23,13 +22,9 @@ export function detectInputType(value) {
 
 /**
  * Validate email format
- * @param {string} value
- * @returns {{ valid: boolean, error?: string }}
  */
 export function validateEmail(value) {
   const trimmed = value.trim();
-  // Must have something@something.something
-  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!trimmed || !EMAIL_REGEX.test(trimmed)) {
     return { valid: false, error: 'invalidEmail' };
   }
@@ -38,13 +33,9 @@ export function validateEmail(value) {
 
 /**
  * Validate Instagram handle
- * Rejects anything that looks like an email domain (gmail, hotmail etc)
- * @param {string} value
- * @returns {{ valid: boolean, error?: string }}
  */
 export function validateInstagram(value) {
   const trimmed = value.trim().replace(/^@/, '');
-  // If it has an @ inside it's being typed as email-style but without a dot — check for email domains
   if (EMAIL_DOMAIN_REGEX.test('@' + trimmed)) {
     return { valid: false, error: 'invalidInstagram' };
   }
@@ -56,8 +47,6 @@ export function validateInstagram(value) {
 
 /**
  * Normalize Instagram handle — ensures it starts with @
- * @param {string} value
- * @returns {string}
  */
 export function normalizeInstagram(value) {
   const trimmed = value.trim();

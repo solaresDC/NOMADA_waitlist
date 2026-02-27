@@ -16,7 +16,7 @@ async function query(sql, params = []) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': CONFIG.NEON_AUTH_HEADER,
+      'Authorization': `Basic ${CONFIG.NEON_AUTH_HEADER}`,
       'Neon-Connection-String': `postgresql://waitlist_writer@${new URL(CONFIG.NEON_HTTP_URL).hostname}/${CONFIG.NEON_DB_NAME}`,
     },
     body: JSON.stringify({
