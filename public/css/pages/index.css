@@ -1,39 +1,79 @@
 /**
- * Index page — additional tweaks
- * Most styles live in layout/page.css and components
+ * Nomada Waitlist — Page-specific styles (index.html)
+ * All component-level styles are in /css/components/
  */
 
-/* Particle-like floating dots — pure CSS, zero JS */
-.bg-orb {
-  position: fixed;
-  border-radius: var(--radius-circle);
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(60px);
-  opacity: 0.18;
-  animation: orb-float 12s ease-in-out infinite alternate;
+/* ── Headline ────────────────────────────────────── */
+.headline {
+  font-size: var(--font-size-hero);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  max-width: 440px;
 }
 
-.bg-orb-1 {
-  width: 300px;
-  height: 300px;
-  background: var(--color-accent-cyan);
-  top: -80px;
-  left: -80px;
-  animation-duration: 14s;
+/* ── Season line (Spring 2025 · Toronto) ─────────── */
+.season {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-secondary);
+  margin-top: calc(var(--space-xl) * -0.5); /* pull closer to headline */
 }
 
-.bg-orb-2 {
-  width: 250px;
-  height: 250px;
-  background: var(--color-accent-pink);
-  bottom: -60px;
-  right: -60px;
-  animation-duration: 18s;
-  animation-direction: alternate-reverse;
+/* ── Scarcity block wrapper ──────────────────────── */
+.scarcity-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: calc(var(--space-xl) * -0.25);
 }
 
-@keyframes orb-float {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(30px, 20px) scale(1.08); }
+/* ── Scarcity line (Cupo limitado · Sujeto...) ───── */
+.scarcity {
+  font-size: var(--font-size-xs);
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+/* ── Spots line (300 lugares) ────────────────────── */
+.spots {
+  font-size: 0.65rem;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.55;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  padding: var(--space-lg) var(--container-pad);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-card-border);
+  margin-top: auto;
+}
+
+/* ── Responsive: Tablet ──────────────────────────── */
+@media (min-width: 48em) {
+  .content {
+    gap: var(--space-2xl);
+    padding-top: var(--space-2xl);
+  }
+
+  .season {
+    font-size: var(--font-size-sm);
+  }
 }
