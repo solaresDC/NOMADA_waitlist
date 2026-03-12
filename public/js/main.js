@@ -89,12 +89,55 @@ langOptions.forEach(opt => {
     applyTranslations();
     updateActiveLangOption();
     toggleDropdown(false);
-    // Clear any visible errors when switching language
     clearErrors();
   });
 });
 
 document.addEventListener('click', () => toggleDropdown(false));
+
+// ── Instagram @ prefix logic ───────────────────────
+// When user focuses the Instagram field, insert @ and keep cursor after it.
+// The @ cannot be deleted — enforced on every input and keydown event.
+
+instaInput.addEventListener('focus', () => {
+  if (!instaInput.value.startsWith('@')) {
+    instaInput.value = '@';
+  }
+  // Move cursor to end
+  const len = instaInput.value.length;
+  instaInput.setSelectionRange(len, len);
+});
+
+instaInput.addEventListener('keydown', (e) => {
+  const val = instaInput.value;
+  const cursorPos = instaInput.selectionStart;
+
+  // Block Backspace / Delete if it would remove the @
+  if ((e.key === 'Backspace' && cursorPos <= 1 && instaInput.selectionEnd <= 1) ||
+      (e.key === 'Delete' && cursorPos === 0)) {
+    e.preventDefault();
+  }
+
+  // Block selecting all and typing over it (would erase @)
+  // Handled by the input listener below as a safety net
+});
+
+instaInput.addEventListener('input', () => {
+  // Safety net — if @ was somehow removed, restore it
+  if (!instaInput.value.startsWith('@')) {
+    const restored = '@' + instaInput.value.replace(/^@*/, '');
+    instaInput.value = restored;
+    // Keep cursor at end
+    instaInput.setSelectionRange(restored.length, restored.length);
+  }
+
+  const val = instaInput.value;
+  const show = val.length > 1; // more than just the @
+  instaGhost.textContent = t(lang, 'ghostInstagram');
+  instaGhost.classList.toggle('is-visible', show);
+  instaError.textContent = '';
+  instaInput.classList.remove('has-error');
+});
 
 // ── Input ghost hints ──────────────────────────────
 emailInput.addEventListener('input', () => {
@@ -104,20 +147,6 @@ emailInput.addEventListener('input', () => {
   emailGhost.classList.toggle('is-visible', show);
   emailError.textContent = '';
   emailInput.classList.remove('has-error');
-});
-
-instaInput.addEventListener('input', () => {
-  // Strip @ if user types it anyway
-  if (instaInput.value.startsWith('@')) {
-    instaInput.value = instaInput.value.replace(/^@+/, '');
-  }
-
-  const val = instaInput.value;
-  const show = val.length > 0;
-  instaGhost.textContent = t(lang, 'ghostInstagram');
-  instaGhost.classList.toggle('is-visible', show);
-  instaError.textContent = '';
-  instaInput.classList.remove('has-error');
 });
 
 // ── Validation helpers ─────────────────────────────
@@ -143,15 +172,15 @@ submitBtn.addEventListener('click', async () => {
   clearErrors();
 
   const emailVal = emailInput.value.trim();
-  const instaVal = instaInput.value.trim();
+  // Strip the leading @ before validation since normalizeInstagram adds it back
+  const instaRaw = instaInput.value.trim();
+  const instaVal = instaRaw === '@' ? '' : instaRaw.replace(/^@/, '');
 
-  // Determine which field was filled
   let contactType = null;
   let contactValue = null;
 
   if (emailVal && instaVal) {
-    // Both filled — prefer email but show a note
-    showInstaError('errorEmpty'); // simple: ask them to pick one
+    showInstaError('errorEmpty');
     return;
   }
 
@@ -226,6 +255,5 @@ modalOverlay.addEventListener('click', (e) => {
 });
 
 // ── Neon Keep-Alive Cron ───────────────────────────
-// Runs immediately on page load, then every 5 minutes
 keepAlive();
 setInterval(keepAlive, CONFIG.KEEPALIVE_INTERVAL_MS);

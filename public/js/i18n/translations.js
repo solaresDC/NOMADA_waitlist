@@ -13,21 +13,21 @@ export const translations = {
     spots: '300 spots',
 
     // Waitlist box
-    joinWaitlist: 'I want my spot',
+    joinWaitlist: 'I Want My Spot',
     joinWithEmail: 'With email',
     or: 'or',
     instagramAccount: 'With Instagram',
 
     // Input placeholders
     emailPlaceholder: 'your@email.com',
-    instagramPlaceholder: 'yourusername',
+    instagramPlaceholder: '@yourusername',
 
     // Ghost validation text
     ghostSure: 'Be sure it\'s right',
     ghostInstagram: 'Be sure it\'s right — be ready to receive a message in your inbox from Nomada',
 
     // Submit button
-    submitButton: 'Join the waitlist',
+    submitButton: 'Join The Waitlist',
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
@@ -57,21 +57,21 @@ export const translations = {
     spots: '300 lugares',
 
     // Waitlist box
-    joinWaitlist: 'Quiero mi lugar',
+    joinWaitlist: 'Quiero Mi Lugar',
     joinWithEmail: 'Con email',
     or: 'o',
     instagramAccount: 'Con Instagram',
 
     // Input placeholders
     emailPlaceholder: 'tu@email.com',
-    instagramPlaceholder: 'tunombre',
+    instagramPlaceholder: '@tunombre',
 
     // Ghost validation text
-    ghostSure: 'Asegúrate de que esté bien escrito',
-    ghostInstagram: 'Asegúrate de que esté bien — prepárate para recibir un mensaje en tu inbox de Nomada',
+    ghostSure: 'Asegúrese de que esté bien escrito',
+    ghostInstagram: 'Asegúrese de que esté bien — prepárese para recibir un mensaje en su inbox de Nomada',
 
     // Submit button
-    submitButton: 'Únete a la lista',
+    submitButton: 'Únete A La Lista',
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
@@ -101,21 +101,21 @@ export const translations = {
     spots: '300 vagas',
 
     // Waitlist box
-    joinWaitlist: 'Quero meu lugar',
+    joinWaitlist: 'Quero Meu Lugar',
     joinWithEmail: 'Com email',
     or: 'ou',
     instagramAccount: 'Com Instagram',
 
     // Input placeholders
     emailPlaceholder: 'seu@email.com',
-    instagramPlaceholder: 'seuusuario',
+    instagramPlaceholder: '@seuusuario',
 
     // Ghost validation text
-    ghostSure: 'Verifique se está correto',
-    ghostInstagram: 'Verifique se está correto — esteja pronto para receber uma mensagem no seu inbox do Nomada',
+    ghostSure: 'Certifique-se de que está correto',
+    ghostInstagram: 'Certifique-se de que está correto — esteja pronto para receber uma mensagem no seu inbox do Nomada',
 
     // Submit button
-    submitButton: 'Entrar na lista',
+    submitButton: 'Entrar Na Lista',
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
