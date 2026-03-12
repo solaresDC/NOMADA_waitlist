@@ -13,7 +13,7 @@
   max-width: 440px;
 }
 
-/* ── Season line (Spring 2025 · Toronto) ─────────── */
+/* ── Season line (Spring · 2026) ─────────────────── */
 .season {
   font-size: var(--font-size-sm);
   font-weight: 600;
@@ -21,7 +21,7 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--color-text-secondary);
-  margin-top: calc(var(--space-xl) * -0.5); /* pull closer to headline */
+  margin-top: calc(var(--space-xl) * -0.5);
 }
 
 /* ── Scarcity block wrapper ──────────────────────── */
@@ -30,27 +30,27 @@
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
-  margin-top: calc(var(--space-xl) * -0.25);
+  margin-top: var(--space-xl); /* generous space below season line */
 }
 
 /* ── Scarcity line (Cupo limitado · Sujeto...) ───── */
 .scarcity {
-  font-size: var(--font-size-xs);
+  font-size: 0.65rem; /* smaller than before */
   text-align: center;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
-  opacity: 0.8;
+  opacity: 0.65;
 }
 
 /* ── Spots line (300 lugares) ────────────────────── */
 .spots {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  opacity: 0.55;
+  opacity: 0.45;
 }
 
 /* ── Footer ──────────────────────────────────────── */

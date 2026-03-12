@@ -13,10 +13,10 @@ export const translations = {
     spots: '300 spots',
 
     // Waitlist box
-    joinWaitlist: 'Join waitlist',
-    joinWithEmail: 'Join with email',
+    joinWaitlist: 'I want my spot',
+    joinWithEmail: 'With email',
     or: 'or',
-    instagramAccount: 'Instagram account',
+    instagramAccount: 'Instagram',
 
     // Input placeholders
     emailPlaceholder: 'your@email.com',
@@ -31,7 +31,7 @@ export const translations = {
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
-    successMessage: "You're in. We'll send you a link in March to get your ticket before anyone else. Only 300 spots — no venue, no time yet, but trust us: it's happening. Exclusive. Mysterious. Unforgettable. Details coming when it's time.",
+    successMessage: "You're in. We'll send you a link in Spring to get your ticket before anyone else. Only 300 spots — no venue, no time yet, but trust us: it's happening. Exclusive. Mysterious. Unforgettable. Details coming when it's time.",
     successClose: 'Close',
 
     // Errors
@@ -57,10 +57,10 @@ export const translations = {
     spots: '300 lugares',
 
     // Waitlist box
-    joinWaitlist: 'Únete a la lista',
-    joinWithEmail: 'Únete con email',
+    joinWaitlist: 'Quiero mi lugar',
+    joinWithEmail: 'Con email',
     or: 'o',
-    instagramAccount: 'Cuenta de Instagram',
+    instagramAccount: 'Instagram',
 
     // Input placeholders
     emailPlaceholder: 'tu@email.com',
@@ -75,7 +75,7 @@ export const translations = {
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
-    successMessage: 'Ya estás adentro. En marzo te mandaremos el link para conseguir tu ticket antes que nadie. Solo 300 cupos — sin venue ni hora aún, pero confía: va a pasar. Exclusivo. Misterioso. Inolvidable. Los detalles llegarán a su tiempo.',
+    successMessage: 'Ya estás adentro. En primavera te mandaremos el link para conseguir tu ticket antes que nadie. Solo 300 cupos — sin venue ni hora aún, pero confía: va a pasar. Exclusivo. Misterioso. Inolvidable. Los detalles llegarán a su tiempo.',
     successClose: 'Cerrar',
 
     // Errors
@@ -101,10 +101,10 @@ export const translations = {
     spots: '300 vagas',
 
     // Waitlist box
-    joinWaitlist: 'Entrar na lista',
-    joinWithEmail: 'Entrar com email',
+    joinWaitlist: 'Quero meu lugar',
+    joinWithEmail: 'Com email',
     or: 'ou',
-    instagramAccount: 'Conta do Instagram',
+    instagramAccount: 'Instagram',
 
     // Input placeholders
     emailPlaceholder: 'seu@email.com',
@@ -119,7 +119,7 @@ export const translations = {
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
-    successMessage: 'Você está dentro. Em março te mandaremos o link para pegar seu ingresso antes de todo mundo. Apenas 300 vagas — sem local ou horário ainda, mas confie: vai acontecer. Exclusivo. Misterioso. Inesquecível. Os detalhes chegarão no momento certo.',
+    successMessage: 'Você está dentro. Na primavera te mandaremos o link para pegar seu ingresso antes de todo mundo. Apenas 300 vagas — sem local ou horário ainda, mas confie: vai acontecer. Exclusivo. Misterioso. Inesquecível. Os detalhes chegarão no momento certo.',
     successClose: 'Fechar',
 
     // Errors
