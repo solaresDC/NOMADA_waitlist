@@ -101,6 +101,16 @@ instaInput.addEventListener('focus', () => {
   instaInput.setSelectionRange(len, len);
 });
 
+// FIX: if user leaves the field with only @ (nothing typed), clear it entirely
+instaInput.addEventListener('blur', () => {
+  if (instaInput.value === '@' || instaInput.value === '') {
+    instaInput.value = '';
+    instaGhost.classList.remove('is-visible');
+    instaError.textContent = '';
+    instaInput.classList.remove('has-error');
+  }
+});
+
 instaInput.addEventListener('keydown', (e) => {
   const cursorPos = instaInput.selectionStart;
   if ((e.key === 'Backspace' && cursorPos <= 1 && instaInput.selectionEnd <= 1) ||
@@ -157,10 +167,8 @@ submitBtn.addEventListener('click', async () => {
 
   const emailVal = emailInput.value.trim();
   const instaRaw = instaInput.value.trim();
-  // Strip leading @ for validation — normalizeInstagram adds it back
   const instaVal = instaRaw === '@' ? '' : instaRaw.replace(/^@/, '');
 
-  // ── Validate what was provided ─────────────────
   let emailValid = false;
   let instaValid = false;
 
@@ -168,7 +176,7 @@ submitBtn.addEventListener('click', async () => {
     const result = validateEmail(emailVal);
     if (!result.valid) {
       showEmailError('errorInvalidEmail');
-      return; // Bad email format — block entirely
+      return;
     }
     emailValid = true;
   }
@@ -177,23 +185,20 @@ submitBtn.addEventListener('click', async () => {
     const result = validateInstagram(instaVal);
     if (!result.valid) {
       showInstaError(result.error === 'invalidInstagram' ? 'errorInvalidInstagram' : 'errorEmpty');
-      return; // Bad instagram format — block entirely
+      return;
     }
     instaValid = true;
   }
 
-  // ── Both fields empty ──────────────────────────
   if (!emailValid && !instaValid) {
     showEmailError('errorEmpty');
     return;
   }
 
-  // ── Submit ─────────────────────────────────────
   submitBtn.disabled = true;
   submitBtn.textContent = '...';
 
   try {
-    // Build the list of submissions to attempt
     const submissions = [];
 
     if (emailValid) {
@@ -208,16 +213,12 @@ submitBtn.addEventListener('click', async () => {
       );
     }
 
-    // Fire all submissions in parallel
     const results = await Promise.all(submissions);
 
-    // Check outcomes — at least one must succeed (non-duplicate)
-    // Duplicates are silently skipped
     const anySuccess = results.some(r => r.success === true);
     const allDuplicate = results.every(r => r.duplicate === true);
 
     if (allDuplicate) {
-      // Every entry submitted was already on the list
       if (emailValid) showEmailError('errorDuplicate');
       if (instaValid) showInstaError('errorDuplicate');
       return;
@@ -242,7 +243,6 @@ function openModal() {
   modalMessage.textContent = t(lang, 'successMessage');
   modalCloseBtn.textContent = t(lang, 'successClose');
   modalOverlay.classList.add('is-open');
-  // Clear everything — fresh start
   emailInput.value = '';
   instaInput.value = '';
   emailGhost.classList.remove('is-visible');
