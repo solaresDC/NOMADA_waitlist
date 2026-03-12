@@ -43,6 +43,13 @@
   gap: var(--space-xl);
 }
 
+/* ── Mobile only: push content down to clear language button ── */
+@media (max-width: 47.99em) {
+  .content {
+    padding-top: 5rem; /* enough room so tagline never overlaps the EN button */
+  }
+}
+
 /* ── Typography helpers ──────────────────────────── */
 .text-gradient {
   background: var(--gradient-text);
@@ -104,25 +111,5 @@
   .content {
     gap: var(--space-2xl);
     padding-top: var(--space-2xl);
-  }
-
-  .logo {
-    width: 240px;
-  }
-}
-
-/* ── Responsive: Laptop ──────────────────────────── */
-@media (min-width: 64em) {
-  .content {
-    max-width: 600px;
-    padding-top: var(--space-3xl);
-  }
-
-  .logo {
-    width: 280px;
-  }
-
-  .headline {
-    max-width: 520px;
   }
 }
