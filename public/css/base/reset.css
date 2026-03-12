@@ -12,9 +12,6 @@ html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-
-  /* Prevent rubbery bounce/overscroll at top and bottom of page */
-  overscroll-behavior: none;
 }
 
 body {
@@ -40,9 +37,6 @@ body {
 
   /* Eliminate the 300ms tap delay — makes every touch feel instant */
   touch-action: manipulation;
-
-  /* Prevent pull-to-refresh on mobile */
-  overscroll-behavior-y: none;
 }
 
 /* Re-enable text selection inside input fields so users can edit their text */
@@ -51,7 +45,6 @@ input, textarea {
   -moz-user-select: text;
   user-select: text;
   -webkit-touch-callout: default;
-  /* Inputs still need manipulation to prevent zoom on focus */
   touch-action: manipulation;
 }
 
@@ -66,7 +59,6 @@ button {
   border: none;
   background: none;
   font-family: inherit;
-  /* Instant tap response on buttons too */
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }

@@ -49,7 +49,6 @@ function applyTranslations() {
   langBtnLabel.textContent = t(lang, 'languageLabel');
   document.documentElement.lang = lang;
 
-  // Re-render ghost hints instantly on language switch if visible
   if (emailGhost.classList.contains('is-visible')) {
     emailGhost.textContent = t(lang, 'ghostSure');
   }
@@ -92,13 +91,42 @@ langOptions.forEach(opt => {
 
 document.addEventListener('click', () => toggleDropdown(false));
 
+// ── Instagram @ cursor guard ───────────────────────
+// Called whenever the cursor position might have changed — forces it
+// to stay at position 1 minimum (never before the @)
+function enforceAtCursor() {
+  if (document.activeElement !== instaInput) return;
+  const start = instaInput.selectionStart;
+  const end   = instaInput.selectionEnd;
+  if (start < 1 || end < 1) {
+    // Clamp both ends of the selection to position 1
+    const newStart = Math.max(1, start);
+    const newEnd   = Math.max(1, end);
+    instaInput.setSelectionRange(newStart, newEnd);
+  }
+}
+
+// Catches manual taps / clicks that place the cursor before the @
+instaInput.addEventListener('click', () => {
+  setTimeout(enforceAtCursor, 0);
+});
+
+// Catches touch-based cursor placement (long press, drag handles)
+instaInput.addEventListener('touchend', () => {
+  setTimeout(enforceAtCursor, 0);
+});
+
+// Catches selectionchange — fires whenever the cursor moves for any reason
+// (keyboard, tap, drag, accessibility tools)
+document.addEventListener('selectionchange', () => {
+  enforceAtCursor();
+});
+
 // ── Instagram @ prefix logic ───────────────────────
 instaInput.addEventListener('focus', () => {
   if (!instaInput.value.startsWith('@')) {
     instaInput.value = '@';
   }
-  // FIX: setTimeout lets the browser finish its own focus/cursor placement
-  // before we force the cursor to the end — prevents it landing before the @
   setTimeout(() => {
     const len = instaInput.value.length;
     instaInput.setSelectionRange(len, len);
