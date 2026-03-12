@@ -8,7 +8,7 @@ export const translations = {
     // Hero
     tagline: 'The first Latino party with open bar',
     headline: 'Something different is coming to Toronto.',
-    season: 'Spring 2025 · Toronto',
+    season: 'Spring 2026',
     scarcity: 'Limited · Subject to availability',
     spots: '300 spots',
 
@@ -45,14 +45,14 @@ export const translations = {
     languageLabel: 'EN',
 
     // Footer
-    footer: '© 2025 Nomada. Something is coming.',
+    footer: '© 2026 Nomada. Something is coming.',
   },
 
   es: {
     // Hero
     tagline: 'La primera fiesta latina con barra libre',
     headline: 'Algo diferente está llegando a Toronto.',
-    season: 'Primavera 2025 · Toronto',
+    season: 'Primavera 2026',
     scarcity: 'Cupo limitado · Sujeto a disponibilidad',
     spots: '300 lugares',
 
@@ -89,14 +89,14 @@ export const translations = {
     languageLabel: 'ES',
 
     // Footer
-    footer: '© 2025 Nomada. Algo viene.',
+    footer: '© 2026 Nomada. Algo viene.',
   },
 
   pt: {
     // Hero
     tagline: 'A primeira festa latina com open bar',
     headline: 'Algo diferente está chegando a Toronto.',
-    season: 'Primavera 2025 · Toronto',
+    season: 'Primavera 2026',
     scarcity: 'Vagas limitadas · Sujeito a disponibilidade',
     spots: '300 vagas',
 
@@ -133,7 +133,7 @@ export const translations = {
     languageLabel: 'PT',
 
     // Footer
-    footer: '© 2025 Nomada. Algo está chegando.',
+    footer: '© 2026 Nomada. Algo está chegando.',
   },
 };
 
