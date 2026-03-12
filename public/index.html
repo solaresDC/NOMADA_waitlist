@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Viewport: prevent zoom on input tap, fill the full screen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <!-- Status bar + URL bar color (Android Chrome & Safari) -->
   <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- iPhone home screen: opens as full-screen app, no Safari toolbar -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <!-- ── SEO: Open Graph (WhatsApp / chat link previews) ── -->
   <meta property="og:type"        content="website" />
   <meta property="og:title"       content="Nomada — The first Latino party with open bar 🔥" />
-  <meta property="og:description" content="Only 300 spots. Something exclusive is happening in March. Get on the list first." />
+  <meta property="og:description" content="Only 300 spots. Something exclusive is happening in Spring 2026. Get on the list first." />
   <meta property="og:image"       content="https://nomada-waitlist.pages.dev/images/og-preview.jpg" />
   <meta property="og:url"         content="https://nomada-waitlist.pages.dev/" />
   <meta property="og:site_name"   content="Nomada" />
-
-  <!-- WhatsApp specifically reads og: tags — no extra tags needed -->
 
   <title>Nomada — Something is coming</title>
   <link rel="stylesheet" href="/css/main.css" />
@@ -80,7 +86,7 @@
       </h1>
 
       <!-- Season -->
-      <p class="season" data-i18n="season">Spring 2025 · Toronto</p>
+      <p class="season" data-i18n="season">Spring · 2026</p>
 
       <!-- Scarcity lines -->
       <div class="scarcity-block">
@@ -91,11 +97,11 @@
       <!-- ── Waitlist Box ────────────────────── -->
       <div class="waitlist-box" role="region" aria-label="Join waitlist">
 
-        <h2 class="waitlist-title" data-i18n="joinWaitlist">Join waitlist</h2>
+        <h2 class="waitlist-title" data-i18n="joinWaitlist">I Want My Spot</h2>
 
         <!-- Email input -->
         <div class="input-group">
-          <label class="input-label" for="email-input" data-i18n="joinWithEmail">Join with email</label>
+          <label class="input-label" for="email-input" data-i18n="joinWithEmail">With email</label>
           <input
             id="email-input"
             class="input-field"
@@ -117,7 +123,7 @@
 
         <!-- Instagram input -->
         <div class="input-group">
-          <label class="input-label" for="insta-input" data-i18n="instagramAccount">Instagram account</label>
+          <label class="input-label" for="insta-input" data-i18n="instagramAccount">With Instagram</label>
           <input
             id="insta-input"
             class="input-field"
@@ -126,7 +132,7 @@
             autocapitalize="none"
             autocorrect="off"
             spellcheck="false"
-            placeholder="yourusername"
+            placeholder="@yourusername"
             data-placeholder-i18n="instagramPlaceholder"
             aria-describedby="insta-ghost insta-error"
           />
@@ -139,7 +145,7 @@
 
       <!-- Submit button — outside the box -->
       <button id="submit-btn" class="submit-btn" data-i18n="submitButton">
-        I want my spot
+        Join The Waitlist
       </button>
 
     </div>
@@ -147,7 +153,7 @@
 
     <!-- ── Footer ─────────────────────────────── -->
     <footer class="site-footer">
-      <p data-i18n="footer">© 2025 Nomada. Something is coming.</p>
+      <p data-i18n="footer">© 2026 Nomada. Something is coming.</p>
     </footer>
 
   </main>

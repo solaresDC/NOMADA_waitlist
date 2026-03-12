@@ -97,11 +97,15 @@ instaInput.addEventListener('focus', () => {
   if (!instaInput.value.startsWith('@')) {
     instaInput.value = '@';
   }
-  const len = instaInput.value.length;
-  instaInput.setSelectionRange(len, len);
+  // FIX: setTimeout lets the browser finish its own focus/cursor placement
+  // before we force the cursor to the end — prevents it landing before the @
+  setTimeout(() => {
+    const len = instaInput.value.length;
+    instaInput.setSelectionRange(len, len);
+  }, 0);
 });
 
-// FIX: if user leaves the field with only @ (nothing typed), clear it entirely
+// Clear field if user leaves without typing anything beyond @
 instaInput.addEventListener('blur', () => {
   if (instaInput.value === '@' || instaInput.value === '') {
     instaInput.value = '';
@@ -113,13 +117,20 @@ instaInput.addEventListener('blur', () => {
 
 instaInput.addEventListener('keydown', (e) => {
   const cursorPos = instaInput.selectionStart;
+  // Block any key that would delete the @
   if ((e.key === 'Backspace' && cursorPos <= 1 && instaInput.selectionEnd <= 1) ||
       (e.key === 'Delete' && cursorPos === 0)) {
     e.preventDefault();
   }
+  // Block cursor from moving before the @ with arrow keys or Home key
+  if ((e.key === 'ArrowLeft' || e.key === 'Home') && cursorPos <= 1) {
+    e.preventDefault();
+    instaInput.setSelectionRange(1, 1);
+  }
 });
 
 instaInput.addEventListener('input', () => {
+  // Safety net — restore @ if somehow removed (paste, select-all, etc.)
   if (!instaInput.value.startsWith('@')) {
     const restored = '@' + instaInput.value.replace(/^@*/, '');
     instaInput.value = restored;
