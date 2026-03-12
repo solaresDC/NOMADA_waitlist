@@ -34,6 +34,7 @@ const modalLine1     = document.getElementById('modal-line1');
 const modalLine2     = document.getElementById('modal-line2');
 const modalLine3     = document.getElementById('modal-line3');
 const modalLine4     = document.getElementById('modal-line4');
+const modalLine5     = document.getElementById('modal-line5');
 const modalCloseBtn  = document.getElementById('modal-close-btn');
 
 const translatableEls = document.querySelectorAll('[data-i18n]');
@@ -276,6 +277,7 @@ function openModal() {
   modalLine2.textContent    = t(lang, 'successLine2');
   modalLine3.textContent    = t(lang, 'successLine3');
   modalLine4.textContent    = t(lang, 'successLine4');
+  modalLine5.textContent    = t(lang, 'successLine5');
   modalCloseBtn.textContent = t(lang, 'successClose');
 
   modalOverlay.classList.add('is-open');

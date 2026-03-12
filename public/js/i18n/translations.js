@@ -30,11 +30,12 @@ export const translations = {
     submitButton: 'Join The Waitlist',
 
     // Success modal
-    successTitle: 'You\'re in.',
-    successLine1: 'A link is coming your way in the coming days.',
-    successLine2: 'Tickets before the rest.',
-    successLine3: 'You asked first.',
-    successLine4: 'Welcome among the 300.',
+    successTitle: 'ARRRRECHO 🔥',
+    successLine1: 'You\'re in.',
+    successLine2: 'A link is coming your way in the coming days.',
+    successLine3: 'Tickets before the rest.',
+    successLine4: 'You asked first.',
+    successLine5: 'Welcome among the 300.',
     successClose: 'Got it',
 
     // Errors
@@ -77,11 +78,12 @@ export const translations = {
     submitButton: 'Únete A La Lista',
 
     // Success modal
-    successTitle: 'Estás dentro.',
-    successLine1: 'Un link llegará en los próximos días.',
-    successLine2: 'De los primeros en llegar.',
-    successLine3: 'De los pocos en entrar.',
-    successLine4: 'Bienvenido entre los 300.',
+    successTitle: 'ARRRRECHO 🔥',
+    successLine1: 'Estás dentro.',
+    successLine2: 'Un link llegará en los próximos días.',
+    successLine3: 'De los primeros en llegar.',
+    successLine4: 'De los pocos en entrar.',
+    successLine5: 'Bienvenido entre los 300.',
     successClose: 'Entendido',
 
     // Errors
@@ -124,11 +126,12 @@ export const translations = {
     submitButton: 'Entrar Na Lista',
 
     // Success modal
-    successTitle: 'Você entrou.',
-    successLine1: 'Um link chegará nos próximos dias.',
-    successLine2: 'Dos primeiros a chegar.',
-    successLine3: 'Dos poucos a entrar.',
-    successLine4: 'Bem-vindo entre os 300.',
+    successTitle: 'ARRRRECHO 🔥',
+    successLine1: 'Você entrou.',
+    successLine2: 'Um link chegará nos próximos dias.',
+    successLine3: 'Dos primeiros a chegar.',
+    successLine4: 'Dos poucos a entrar.',
+    successLine5: 'Bem-vindo entre os 300.',
     successClose: 'Entendido',
 
     // Errors
