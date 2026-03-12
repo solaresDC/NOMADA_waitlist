@@ -23,6 +23,9 @@
   text-align: center;
   color: var(--color-text-primary);
   letter-spacing: 0.02em;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-card-border);
+  margin-bottom: var(--space-xs);
 }
 
 /* ── Input group ─────────────────────────────────── */
