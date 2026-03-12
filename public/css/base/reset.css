@@ -23,6 +23,22 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+
+  /* Prevent long-press text selection on all page content */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+  /* Prevent long-press context menu on iOS */
+  -webkit-touch-callout: none;
+}
+
+/* Re-enable text selection inside input fields so users can edit their text */
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
 }
 
 img, video {
