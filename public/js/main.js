@@ -5,7 +5,7 @@
 import { CONFIG } from './config/index.js';
 import { t } from './i18n/translations.js';
 import { getLanguage, saveLanguage } from './utils/storage.js';
-import { detectInputType, validateEmail, validateInstagram, normalizeInstagram } from './utils/validation.js';
+import { validateEmail, validateInstagram, normalizeInstagram } from './utils/validation.js';
 import { insertWaitlistEntry, keepAlive } from './utils/neon.js';
 
 // ── State ──────────────────────────────────────────
@@ -33,7 +33,6 @@ const modalTitle     = document.getElementById('modal-title');
 const modalMessage   = document.getElementById('modal-message');
 const modalCloseBtn  = document.getElementById('modal-close-btn');
 
-// Text nodes that need translation
 const translatableEls = document.querySelectorAll('[data-i18n]');
 
 // ── Render ─────────────────────────────────────────
@@ -43,7 +42,6 @@ function applyTranslations() {
     el.textContent = t(lang, key);
   });
 
-  // Update input placeholders
   document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
     el.placeholder = t(lang, el.dataset.placeholderI18n);
   });
@@ -51,7 +49,7 @@ function applyTranslations() {
   langBtnLabel.textContent = t(lang, 'languageLabel');
   document.documentElement.lang = lang;
 
-  // FIX: if ghost hints are currently visible, re-render them in the new language immediately
+  // Re-render ghost hints instantly on language switch if visible
   if (emailGhost.classList.contains('is-visible')) {
     emailGhost.textContent = t(lang, 'ghostSure');
   }
@@ -60,7 +58,6 @@ function applyTranslations() {
   }
 }
 
-// Mark active lang option
 function updateActiveLangOption() {
   langOptions.forEach(opt => {
     opt.classList.toggle('is-active', opt.dataset.lang === lang);
@@ -96,50 +93,37 @@ langOptions.forEach(opt => {
 document.addEventListener('click', () => toggleDropdown(false));
 
 // ── Instagram @ prefix logic ───────────────────────
-// When user focuses the Instagram field, insert @ and keep cursor after it.
-// The @ cannot be deleted — enforced on every input and keydown event.
-
 instaInput.addEventListener('focus', () => {
   if (!instaInput.value.startsWith('@')) {
     instaInput.value = '@';
   }
-  // Move cursor to end
   const len = instaInput.value.length;
   instaInput.setSelectionRange(len, len);
 });
 
 instaInput.addEventListener('keydown', (e) => {
-  const val = instaInput.value;
   const cursorPos = instaInput.selectionStart;
-
-  // Block Backspace / Delete if it would remove the @
   if ((e.key === 'Backspace' && cursorPos <= 1 && instaInput.selectionEnd <= 1) ||
       (e.key === 'Delete' && cursorPos === 0)) {
     e.preventDefault();
   }
-
-  // Block selecting all and typing over it (would erase @)
-  // Handled by the input listener below as a safety net
 });
 
 instaInput.addEventListener('input', () => {
-  // Safety net — if @ was somehow removed, restore it
   if (!instaInput.value.startsWith('@')) {
     const restored = '@' + instaInput.value.replace(/^@*/, '');
     instaInput.value = restored;
-    // Keep cursor at end
     instaInput.setSelectionRange(restored.length, restored.length);
   }
-
   const val = instaInput.value;
-  const show = val.length > 1; // more than just the @
+  const show = val.length > 1;
   instaGhost.textContent = t(lang, 'ghostInstagram');
   instaGhost.classList.toggle('is-visible', show);
   instaError.textContent = '';
   instaInput.classList.remove('has-error');
 });
 
-// ── Input ghost hints ──────────────────────────────
+// ── Email ghost hint ───────────────────────────────
 emailInput.addEventListener('input', () => {
   const val = emailInput.value;
   const show = val.length > 0;
@@ -172,61 +156,80 @@ submitBtn.addEventListener('click', async () => {
   clearErrors();
 
   const emailVal = emailInput.value.trim();
-  // Strip the leading @ before validation since normalizeInstagram adds it back
   const instaRaw = instaInput.value.trim();
+  // Strip leading @ for validation — normalizeInstagram adds it back
   const instaVal = instaRaw === '@' ? '' : instaRaw.replace(/^@/, '');
 
-  let contactType = null;
-  let contactValue = null;
-
-  if (emailVal && instaVal) {
-    showInstaError('errorEmpty');
-    return;
-  }
-
-  if (!emailVal && !instaVal) {
-    showEmailError('errorEmpty');
-    return;
-  }
+  // ── Validate what was provided ─────────────────
+  let emailValid = false;
+  let instaValid = false;
 
   if (emailVal) {
     const result = validateEmail(emailVal);
     if (!result.valid) {
       showEmailError('errorInvalidEmail');
-      return;
+      return; // Bad email format — block entirely
     }
-    contactType = 'email';
-    contactValue = emailVal;
-  } else {
+    emailValid = true;
+  }
+
+  if (instaVal) {
     const result = validateInstagram(instaVal);
     if (!result.valid) {
       showInstaError(result.error === 'invalidInstagram' ? 'errorInvalidInstagram' : 'errorEmpty');
-      return;
+      return; // Bad instagram format — block entirely
     }
-    contactType = 'instagram';
-    contactValue = normalizeInstagram(instaVal);
+    instaValid = true;
   }
 
-  // Disable button while submitting
+  // ── Both fields empty ──────────────────────────
+  if (!emailValid && !instaValid) {
+    showEmailError('errorEmpty');
+    return;
+  }
+
+  // ── Submit ─────────────────────────────────────
   submitBtn.disabled = true;
   submitBtn.textContent = '...';
 
   try {
-    const { success, duplicate } = await insertWaitlistEntry({ contactType, contactValue, language: lang });
+    // Build the list of submissions to attempt
+    const submissions = [];
 
-    if (duplicate) {
-      if (contactType === 'email') showEmailError('errorDuplicate');
-      else showInstaError('errorDuplicate');
+    if (emailValid) {
+      submissions.push(
+        insertWaitlistEntry({ contactType: 'email', contactValue: emailVal, language: lang })
+      );
+    }
+
+    if (instaValid) {
+      submissions.push(
+        insertWaitlistEntry({ contactType: 'instagram', contactValue: normalizeInstagram(instaVal), language: lang })
+      );
+    }
+
+    // Fire all submissions in parallel
+    const results = await Promise.all(submissions);
+
+    // Check outcomes — at least one must succeed (non-duplicate)
+    // Duplicates are silently skipped
+    const anySuccess = results.some(r => r.success === true);
+    const allDuplicate = results.every(r => r.duplicate === true);
+
+    if (allDuplicate) {
+      // Every entry submitted was already on the list
+      if (emailValid) showEmailError('errorDuplicate');
+      if (instaValid) showInstaError('errorDuplicate');
       return;
     }
 
-    if (success) {
+    if (anySuccess) {
       openModal();
     }
+
   } catch (err) {
     console.error('[Nomada] Submit error:', err);
-    if (contactType === 'email') showEmailError('errorGeneral');
-    else showInstaError('errorGeneral');
+    showEmailError('errorGeneral');
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = t(lang, 'submitButton');
@@ -239,11 +242,12 @@ function openModal() {
   modalMessage.textContent = t(lang, 'successMessage');
   modalCloseBtn.textContent = t(lang, 'successClose');
   modalOverlay.classList.add('is-open');
-  // Reset form
+  // Clear everything — fresh start
   emailInput.value = '';
   instaInput.value = '';
   emailGhost.classList.remove('is-visible');
   instaGhost.classList.remove('is-visible');
+  clearErrors();
 }
 
 modalCloseBtn.addEventListener('click', () => {
