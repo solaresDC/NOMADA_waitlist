@@ -8,7 +8,7 @@ export const translations = {
     // Hero
     tagline: 'The first Latino party with open bar',
     headline: 'Something different is coming to Toronto.',
-    season: 'Spring 2026',
+    season: 'Spring · 2026',
     scarcity: 'Limited · Subject to availability',
     spots: '300 spots',
 
@@ -52,7 +52,7 @@ export const translations = {
     // Hero
     tagline: 'La primera fiesta latina con barra libre',
     headline: 'Algo diferente está llegando a Toronto.',
-    season: 'Primavera 2026',
+    season: 'Primavera · 2026',
     scarcity: 'Cupo limitado · Sujeto a disponibilidad',
     spots: '300 lugares',
 
@@ -96,7 +96,7 @@ export const translations = {
     // Hero
     tagline: 'A primeira festa latina com open bar',
     headline: 'Algo diferente está chegando a Toronto.',
-    season: 'Primavera 2026',
+    season: 'Primavera · 2026',
     scarcity: 'Vagas limitadas · Sujeito a disponibilidade',
     spots: '300 vagas',
 
