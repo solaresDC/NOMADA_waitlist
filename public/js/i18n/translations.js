@@ -29,10 +29,13 @@ export const translations = {
     // Submit button
     submitButton: 'Join The Waitlist',
 
-    // Success popup
-    successTitle: 'ARRRRECHO 🔥',
-    successMessage: "You're in. We'll send you a link in Spring to get your ticket before anyone else. Only 300 spots — no venue, no time yet, but trust us: it's happening. Exclusive. Mysterious. Unforgettable. Details coming when it's time.",
-    successClose: 'Close',
+    // Success modal
+    successTitle: 'You\'re in.',
+    successLine1: 'A link is coming your way in the coming days.',
+    successLine2: 'Tickets before the rest.',
+    successLine3: 'You asked first.',
+    successLine4: 'Welcome among the 300.',
+    successClose: 'Got it',
 
     // Errors
     errorEmpty: 'Please enter your email or Instagram handle',
@@ -73,10 +76,13 @@ export const translations = {
     // Submit button
     submitButton: 'Únete A La Lista',
 
-    // Success popup
-    successTitle: 'ARRRRECHO 🔥',
-    successMessage: 'Ya estás adentro. En primavera te mandaremos el link para conseguir tu ticket antes que nadie. Solo 300 cupos — sin venue ni hora aún, pero confía: va a pasar. Exclusivo. Misterioso. Inolvidable. Los detalles llegarán a su tiempo.',
-    successClose: 'Cerrar',
+    // Success modal
+    successTitle: 'Estás dentro.',
+    successLine1: 'Un link llegará en los próximos días.',
+    successLine2: 'De los primeros en llegar.',
+    successLine3: 'De los pocos en entrar.',
+    successLine4: 'Bienvenido entre los 300.',
+    successClose: 'Entendido',
 
     // Errors
     errorEmpty: 'Por favor ingresa tu email o usuario de Instagram',
@@ -117,10 +123,13 @@ export const translations = {
     // Submit button
     submitButton: 'Entrar Na Lista',
 
-    // Success popup
-    successTitle: 'ARRRRECHO 🔥',
-    successMessage: 'Você está dentro. Na primavera te mandaremos o link para pegar seu ingresso antes de todo mundo. Apenas 300 vagas — sem local ou horário ainda, mas confie: vai acontecer. Exclusivo. Misterioso. Inesquecível. Os detalhes chegarão no momento certo.',
-    successClose: 'Fechar',
+    // Success modal
+    successTitle: 'Você entrou.',
+    successLine1: 'Um link chegará nos próximos dias.',
+    successLine2: 'Dos primeiros a chegar.',
+    successLine3: 'Dos poucos a entrar.',
+    successLine4: 'Bem-vindo entre os 300.',
+    successClose: 'Entendido',
 
     // Errors
     errorEmpty: 'Por favor insira seu email ou usuário do Instagram',

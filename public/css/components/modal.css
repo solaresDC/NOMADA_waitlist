@@ -1,5 +1,5 @@
 /**
- * Success Modal — "ARRRRECHO" popup
+ * Success Modal
  */
 
 .modal-overlay {
@@ -46,6 +46,7 @@
   transform: scale(1);
 }
 
+/* ── Title ───────────────────────────────────────── */
 .modal-title {
   font-size: var(--font-size-3xl);
   font-weight: 800;
@@ -56,12 +57,48 @@
   letter-spacing: 0.02em;
 }
 
-.modal-message {
-  font-size: var(--font-size-md);
-  color: var(--color-text-secondary);
-  line-height: 1.65;
+/* ── Body: wraps all lines ───────────────────────── */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
+/* ── Base line style ─────────────────────────────── */
+.modal-line {
+  font-size: var(--font-size-md);
+  line-height: 1.55;
+}
+
+/* Link line — slightly muted, smaller */
+.modal-line--link {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Rhyming pair — sits together, no gap between them */
+.modal-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.modal-line--pair {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  letter-spacing: 0.01em;
+}
+
+/* Closing line — dimmer, smaller, feels like a whisper */
+.modal-line--closing {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  opacity: 0.75;
+}
+
+/* ── Close button ────────────────────────────────── */
 .modal-close-btn {
   align-self: center;
   padding: 0.65rem var(--space-xl);

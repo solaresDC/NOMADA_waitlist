@@ -30,7 +30,10 @@ const submitBtn      = document.getElementById('submit-btn');
 
 const modalOverlay   = document.getElementById('modal-overlay');
 const modalTitle     = document.getElementById('modal-title');
-const modalMessage   = document.getElementById('modal-message');
+const modalLine1     = document.getElementById('modal-line1');
+const modalLine2     = document.getElementById('modal-line2');
+const modalLine3     = document.getElementById('modal-line3');
+const modalLine4     = document.getElementById('modal-line4');
 const modalCloseBtn  = document.getElementById('modal-close-btn');
 
 const translatableEls = document.querySelectorAll('[data-i18n]');
@@ -92,32 +95,25 @@ langOptions.forEach(opt => {
 document.addEventListener('click', () => toggleDropdown(false));
 
 // ── Instagram @ cursor guard ───────────────────────
-// Called whenever the cursor position might have changed — forces it
-// to stay at position 1 minimum (never before the @)
 function enforceAtCursor() {
   if (document.activeElement !== instaInput) return;
   const start = instaInput.selectionStart;
   const end   = instaInput.selectionEnd;
   if (start < 1 || end < 1) {
-    // Clamp both ends of the selection to position 1
     const newStart = Math.max(1, start);
     const newEnd   = Math.max(1, end);
     instaInput.setSelectionRange(newStart, newEnd);
   }
 }
 
-// Catches manual taps / clicks that place the cursor before the @
 instaInput.addEventListener('click', () => {
   setTimeout(enforceAtCursor, 0);
 });
 
-// Catches touch-based cursor placement (long press, drag handles)
 instaInput.addEventListener('touchend', () => {
   setTimeout(enforceAtCursor, 0);
 });
 
-// Catches selectionchange — fires whenever the cursor moves for any reason
-// (keyboard, tap, drag, accessibility tools)
 document.addEventListener('selectionchange', () => {
   enforceAtCursor();
 });
@@ -133,7 +129,6 @@ instaInput.addEventListener('focus', () => {
   }, 0);
 });
 
-// Clear field if user leaves without typing anything beyond @
 instaInput.addEventListener('blur', () => {
   if (instaInput.value === '@' || instaInput.value === '') {
     instaInput.value = '';
@@ -145,12 +140,10 @@ instaInput.addEventListener('blur', () => {
 
 instaInput.addEventListener('keydown', (e) => {
   const cursorPos = instaInput.selectionStart;
-  // Block any key that would delete the @
   if ((e.key === 'Backspace' && cursorPos <= 1 && instaInput.selectionEnd <= 1) ||
       (e.key === 'Delete' && cursorPos === 0)) {
     e.preventDefault();
   }
-  // Block cursor from moving before the @ with arrow keys or Home key
   if ((e.key === 'ArrowLeft' || e.key === 'Home') && cursorPos <= 1) {
     e.preventDefault();
     instaInput.setSelectionRange(1, 1);
@@ -158,7 +151,6 @@ instaInput.addEventListener('keydown', (e) => {
 });
 
 instaInput.addEventListener('input', () => {
-  // Safety net — restore @ if somehow removed (paste, select-all, etc.)
   if (!instaInput.value.startsWith('@')) {
     const restored = '@' + instaInput.value.replace(/^@*/, '');
     instaInput.value = restored;
@@ -278,10 +270,17 @@ submitBtn.addEventListener('click', async () => {
 
 // ── Modal ──────────────────────────────────────────
 function openModal() {
-  modalTitle.textContent = t(lang, 'successTitle');
-  modalMessage.textContent = t(lang, 'successMessage');
+  // Populate all lines from translations
+  modalTitle.textContent    = t(lang, 'successTitle');
+  modalLine1.textContent    = t(lang, 'successLine1');
+  modalLine2.textContent    = t(lang, 'successLine2');
+  modalLine3.textContent    = t(lang, 'successLine3');
+  modalLine4.textContent    = t(lang, 'successLine4');
   modalCloseBtn.textContent = t(lang, 'successClose');
+
   modalOverlay.classList.add('is-open');
+
+  // Clear form — fresh start
   emailInput.value = '';
   instaInput.value = '';
   emailGhost.classList.remove('is-visible');
