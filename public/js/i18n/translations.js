@@ -16,18 +16,18 @@ export const translations = {
     joinWaitlist: 'I want my spot',
     joinWithEmail: 'With email',
     or: 'or',
-    instagramAccount: 'Instagram',
+    instagramAccount: 'With Instagram',
 
     // Input placeholders
     emailPlaceholder: 'your@email.com',
     instagramPlaceholder: 'yourusername',
 
     // Ghost validation text
-    ghostSure: 'Be sure it is right',
-    ghostInstagram: 'Be sure it is right — and be ready to receive a follow request from @nomada, or set your account to public',
+    ghostSure: 'Be sure it\'s right',
+    ghostInstagram: 'Be sure it\'s right — be ready to receive a message in your inbox from Nomada',
 
     // Submit button
-    submitButton: 'I want my spot',
+    submitButton: 'Join the waitlist',
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
@@ -60,7 +60,7 @@ export const translations = {
     joinWaitlist: 'Quiero mi lugar',
     joinWithEmail: 'Con email',
     or: 'o',
-    instagramAccount: 'Instagram',
+    instagramAccount: 'Con Instagram',
 
     // Input placeholders
     emailPlaceholder: 'tu@email.com',
@@ -68,10 +68,10 @@ export const translations = {
 
     // Ghost validation text
     ghostSure: 'Asegúrate de que esté bien escrito',
-    ghostInstagram: 'Asegúrate de que esté bien — y prepárate para recibir una solicitud de seguimiento de @nomada, o pon tu cuenta en público',
+    ghostInstagram: 'Asegúrate de que esté bien — prepárate para recibir un mensaje en tu inbox de Nomada',
 
     // Submit button
-    submitButton: 'Quiero mi lugar',
+    submitButton: 'Únete a la lista',
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',
@@ -104,7 +104,7 @@ export const translations = {
     joinWaitlist: 'Quero meu lugar',
     joinWithEmail: 'Com email',
     or: 'ou',
-    instagramAccount: 'Instagram',
+    instagramAccount: 'Com Instagram',
 
     // Input placeholders
     emailPlaceholder: 'seu@email.com',
@@ -112,10 +112,10 @@ export const translations = {
 
     // Ghost validation text
     ghostSure: 'Verifique se está correto',
-    ghostInstagram: 'Verifique se está correto — e esteja pronto para receber uma solicitação de @nomada, ou deixe sua conta pública',
+    ghostInstagram: 'Verifique se está correto — esteja pronto para receber uma mensagem no seu inbox do Nomada',
 
     // Submit button
-    submitButton: 'Quero meu lugar',
+    submitButton: 'Entrar na lista',
 
     // Success popup
     successTitle: 'ARRRRECHO 🔥',

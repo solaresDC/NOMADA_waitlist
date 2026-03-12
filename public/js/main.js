@@ -42,8 +42,22 @@ function applyTranslations() {
     const key = el.dataset.i18n;
     el.textContent = t(lang, key);
   });
+
+  // Update input placeholders
+  document.querySelectorAll('[data-placeholder-i18n]').forEach(el => {
+    el.placeholder = t(lang, el.dataset.placeholderI18n);
+  });
+
   langBtnLabel.textContent = t(lang, 'languageLabel');
   document.documentElement.lang = lang;
+
+  // FIX: if ghost hints are currently visible, re-render them in the new language immediately
+  if (emailGhost.classList.contains('is-visible')) {
+    emailGhost.textContent = t(lang, 'ghostSure');
+  }
+  if (instaGhost.classList.contains('is-visible')) {
+    instaGhost.textContent = t(lang, 'ghostInstagram');
+  }
 }
 
 // Mark active lang option
