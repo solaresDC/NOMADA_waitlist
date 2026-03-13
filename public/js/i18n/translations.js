@@ -31,7 +31,7 @@ export const translations = {
 
     // Success modal
     successTitle: 'ARRRRECHO 🔥',
-    successLine1: 'You\'re in.',
+    successLine1: 'You\'re in!',
     successLine2: 'A link is coming your way in the coming days.',
     successLine3: 'Tickets before the rest.',
     successLine4: 'You asked first.',
@@ -79,7 +79,7 @@ export const translations = {
 
     // Success modal
     successTitle: 'ARRRRECHO 🔥',
-    successLine1: 'Estás dentro.',
+    successLine1: 'Estás dentro!',
     successLine2: 'Un link llegará en los próximos días.',
     successLine3: 'De los primeros en llegar.',
     successLine4: 'De los pocos en entrar.',
@@ -127,7 +127,7 @@ export const translations = {
 
     // Success modal
     successTitle: 'ARRRRECHO 🔥',
-    successLine1: 'Você entrou.',
+    successLine1: 'Você entrou!',
     successLine2: 'Um link chegará nos próximos dias.',
     successLine3: 'Dos primeiros a chegar.',
     successLine4: 'Dos poucos a entrar.',

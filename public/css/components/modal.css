@@ -13,7 +13,6 @@
   padding: var(--space-lg);
   z-index: var(--z-modal-overlay);
 
-  /* Hidden state */
   opacity: 0;
   visibility: hidden;
   transition:
@@ -46,9 +45,9 @@
   transform: scale(1);
 }
 
-/* ── Title ───────────────────────────────────────── */
+/* ── Title: ARRRRECHO — slightly reined in, still fire ── */
 .modal-title {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   font-weight: 800;
   background: var(--gradient-fire);
   -webkit-background-clip: text;
@@ -57,56 +56,60 @@
   letter-spacing: 0.02em;
 }
 
-/* ── Body: wraps all lines ───────────────────────── */
+/* ── Body: wraps all lines ──────────────────────────── */
 .modal-body {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
 }
 
-/* ── Base line style ─────────────────────────────── */
+/* ── Base line style ────────────────────────────────── */
 .modal-line {
   font-size: var(--font-size-md);
   line-height: 1.55;
 }
 
-/* Confirm line — "You're in." bold and bright */
+/* "You're in!" — large, bold, white, punchy */
 .modal-line--confirm {
   color: var(--color-text-primary);
-  font-size: var(--font-size-lg);
-  font-weight: 700;
+  font-size: var(--font-size-xl);
+  font-weight: 800;
   letter-spacing: 0.01em;
 }
 
-/* Link line — slightly muted, smaller */
+/* "A link is coming..." — bolder and bigger than before */
 .modal-line--link {
   color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
+  font-weight: 700;
 }
 
-/* Rhyming pair — sits together, no gap between them */
+/* Rhyming pair — no gap between the two lines */
 .modal-pair {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.25rem;
 }
 
+/* Georgia serif, regular weight — elegant contrast */
 .modal-line--pair {
   color: var(--color-text-primary);
-  font-weight: 600;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: var(--font-size-md);
   letter-spacing: 0.01em;
 }
 
-/* Closing line — dimmer, smaller, feels like a whisper */
+/* "Welcome among the 300." — bigger, bold, italic whisper */
 .modal-line--closing {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
   font-style: italic;
-  opacity: 0.75;
 }
 
-/* ── Close button ────────────────────────────────── */
+/* ── Close button ───────────────────────────────────── */
 .modal-close-btn {
   align-self: center;
   padding: 0.65rem var(--space-xl);
