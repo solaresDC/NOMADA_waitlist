@@ -45,26 +45,26 @@
   transform: scale(1);
 }
 
-/* ── ARRRRECHO — dominant, white, fire emoji below ── */
+/* ── ARRRRECHO — dominant, fire gradient, never clips ── */
 .modal-title {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(1.6rem, 8vw, var(--font-size-3xl));
   font-weight: 900;
-  color: var(--color-text-primary);
-  letter-spacing: 0.02em;
-  line-height: 1;
-  margin-bottom: 0.2rem;
-}
-
-/* Fire emoji rendered separately via ::after on modal-title
-   so it can have its own gradient and size */
-.modal-title-fire {
-  display: block;
-  font-size: var(--font-size-xl);
   background: var(--gradient-fire);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+  word-break: keep-all;
+}
+
+/* Fire emoji line below ARRRRECHO */
+.modal-title-fire {
+  display: block;
+  font-size: var(--font-size-xl);
   margin-bottom: var(--space-lg);
+  line-height: 1;
 }
 
 /* ── Confirm + link group — tight together ────────── */

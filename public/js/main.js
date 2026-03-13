@@ -271,7 +271,7 @@ submitBtn.addEventListener('click', async () => {
 // ── Modal ──────────────────────────────────────────
 function openModal() {
   // Populate all lines from translations
-  modalTitle.textContent    = t(lang, 'successTitle').replace(' 🔥', '');
+  modalTitle.textContent    = 'ARRRRECHO';
   modalLine1.textContent    = t(lang, 'successLine1');
   modalLine2.textContent    = t(lang, 'successLine2');
   modalLine3.textContent    = t(lang, 'successLine3');
