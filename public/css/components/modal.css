@@ -55,16 +55,9 @@
   background-clip: text;
   letter-spacing: 0.01em;
   line-height: 1;
-  margin: 0 0 0.3rem;
+  margin: 0 0 var(--space-lg);
   white-space: nowrap;
   overflow: hidden;
-}
-
-/* ── SVG flame below ARRRRECHO ───────────────────── */
-.modal-title-fire {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--space-lg);
 }
 
 /* ── Confirm + link — tight together ─────────────── */
