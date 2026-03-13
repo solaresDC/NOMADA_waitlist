@@ -1,0 +1,16 @@
+/*
+  # Prevent your page from being embedded in iframes (clickjacking protection)
+  X-Frame-Options: DENY
+
+  # Prevent browsers from guessing file types (MIME sniffing protection)
+  X-Content-Type-Options: nosniff
+
+  # Only send the domain as referrer, never the full URL
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Disable access to camera, mic, location — not needed on this site
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+  # Content Security Policy — only allow resources from your own domain + Supabase
+  # 'unsafe-inline' on style-src is required for the CSS variables and animations to work
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://ewzhttpuwxufjnapshwh.supabase.co; img-src 'self' data:; font-src 'self'; frame-ancestors 'none';
