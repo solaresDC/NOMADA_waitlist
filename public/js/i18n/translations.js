@@ -32,10 +32,10 @@ export const translations = {
     // Success modal
     successTitle: 'ARRRRECHO 🔥',
     successLine1: 'You\'re in!',
-    successLine2: 'A link is coming your way in the coming days.',
-    successLine3: 'Tickets before the rest.',
-    successLine4: 'You asked first.',
-    successLine5: 'Welcome among the 300.',
+    successLine2: 'A link is coming your way in the coming days',
+    successLine3: 'Tickets before the rest — You asked first',
+    successLine4: '',
+    successLine5: 'Welcome among the 300',
     successClose: 'Got it',
 
     // Errors
@@ -79,11 +79,11 @@ export const translations = {
 
     // Success modal
     successTitle: 'ARRRRECHO 🔥',
-    successLine1: 'Estás dentro!',
-    successLine2: 'Un link llegará en los próximos días.',
-    successLine3: 'De los primeros en llegar.',
-    successLine4: 'De los pocos en entrar.',
-    successLine5: 'Bienvenido entre los 300.',
+    successLine1: '¡Estás dentro!',
+    successLine2: 'Un link llegará en los próximos días',
+    successLine3: 'De los primeros en llegar — De los pocos en entrar',
+    successLine4: '',
+    successLine5: 'Bienvenido entre los 300',
     successClose: 'Entendido',
 
     // Errors
@@ -128,10 +128,10 @@ export const translations = {
     // Success modal
     successTitle: 'ARRRRECHO 🔥',
     successLine1: 'Você entrou!',
-    successLine2: 'Um link chegará nos próximos dias.',
-    successLine3: 'Dos primeiros a chegar.',
-    successLine4: 'Dos poucos a entrar.',
-    successLine5: 'Bem-vindo entre os 300.',
+    successLine2: 'Um link chegará nos próximos dias',
+    successLine3: 'Dos primeiros a chegar — Dos poucos a entrar',
+    successLine4: '',
+    successLine5: 'Bem-vindo entre os 300',
     successClose: 'Entendido',
 
     // Errors

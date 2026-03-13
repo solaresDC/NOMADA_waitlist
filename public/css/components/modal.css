@@ -38,78 +38,84 @@
   transition: transform var(--transition-normal);
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: 0; /* spacing handled per-section below */
 }
 
 .modal-overlay.is-open .modal {
   transform: scale(1);
 }
 
-/* ── Title: ARRRRECHO — slightly reined in, still fire ── */
+/* ── ARRRRECHO — dominant, white, fire emoji below ── */
 .modal-title {
-  font-size: var(--font-size-2xl);
-  font-weight: 800;
+  font-size: var(--font-size-3xl);
+  font-weight: 900;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+/* Fire emoji rendered separately via ::after on modal-title
+   so it can have its own gradient and size */
+.modal-title-fire {
+  display: block;
+  font-size: var(--font-size-xl);
   background: var(--gradient-fire);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 0.02em;
+  margin-bottom: var(--space-lg);
 }
 
-/* ── Body: wraps all lines ──────────────────────────── */
-.modal-body {
+/* ── Confirm + link group — tight together ────────── */
+.modal-confirm-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: 0.3rem;
+  margin-bottom: var(--space-2xl);
 }
 
-/* ── Base line style ────────────────────────────────── */
-.modal-line {
-  font-size: var(--font-size-md);
-  line-height: 1.55;
-}
-
-/* "You're in!" — large, bold, white, punchy */
+/* "You're in!" */
 .modal-line--confirm {
   color: var(--color-text-primary);
   font-size: var(--font-size-xl);
   font-weight: 800;
-  letter-spacing: 0.01em;
+  line-height: 1.2;
+  margin: 0;
 }
 
-/* "A link is coming..." — bolder and bigger than before */
+/* "A link is coming your way..." */
 .modal-line--link {
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   font-size: var(--font-size-md);
   font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
 }
 
-/* Rhyming pair — no gap between the two lines */
-.modal-pair {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-/* Georgia serif, regular weight — elegant contrast */
+/* ── Pair line — Georgia, farther from link above ─── */
 .modal-line--pair {
-  color: var(--color-text-primary);
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: var(--font-size-md);
-  letter-spacing: 0.01em;
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  margin: 0 0 var(--space-lg);
 }
 
-/* "Welcome among the 300." — bigger, bold, italic whisper */
+/* ── Closing whisper ─────────────────────────────── */
 .modal-line--closing {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-lg);
-  font-weight: 700;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  font-weight: 400;
   font-style: italic;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+  margin: 0 0 var(--space-xl);
 }
 
-/* ── Close button ───────────────────────────────────── */
+/* ── Close button ────────────────────────────────── */
 .modal-close-btn {
   align-self: center;
   padding: 0.65rem var(--space-xl);
