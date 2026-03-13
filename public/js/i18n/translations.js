@@ -36,7 +36,7 @@ export const translations = {
     successLine3: 'Tickets before the rest — You asked first',
     successLine4: '',
     successLine5: 'Welcome among the 300',
-    successClose: 'Got it',
+    successClose: 'See you soon',
 
     // Errors
     errorEmpty: 'Please enter your email or Instagram handle',
@@ -84,10 +84,7 @@ export const translations = {
     successLine3: 'De los primeros en llegar — De los pocos en entrar',
     successLine4: '',
     successLine5: 'Bienvenido entre los 300',
-    successClose: 'Entendido',
-
-    // Errors
-    errorEmpty: 'Por favor ingresa tu email o usuario de Instagram',
+    successClose: 'See you soon',
     errorInvalidEmail: 'Eso no parece un email válido',
     errorInvalidInstagram: 'Los usuarios de Instagram no pueden contener @gmail, @hotmail u otros dominios de email',
     errorDuplicate: '¡Ya estás en la lista! 🎉',
@@ -132,10 +129,7 @@ export const translations = {
     successLine3: 'Dos primeiros a chegar — Dos poucos a entrar',
     successLine4: '',
     successLine5: 'Bem-vindo entre os 300',
-    successClose: 'Entendido',
-
-    // Errors
-    errorEmpty: 'Por favor insira seu email ou usuário do Instagram',
+    successClose: 'See you soon',
     errorInvalidEmail: 'Isso não parece um email válido',
     errorInvalidInstagram: 'Usuários do Instagram não podem conter @gmail, @hotmail ou outros domínios de email',
     errorDuplicate: 'Você já está na lista! 🎉',

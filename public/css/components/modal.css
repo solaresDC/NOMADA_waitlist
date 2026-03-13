@@ -47,7 +47,7 @@
 
 /* ── ARRRRECHO — fire gradient, as large as possible ── */
 .modal-title {
-  font-size: clamp(1.5rem, 7.5vw, var(--font-size-3xl));
+  font-size: clamp(2rem, 11vw, var(--font-size-3xl));
   font-weight: 900;
   background: var(--gradient-fire);
   -webkit-background-clip: text;
@@ -55,9 +55,16 @@
   background-clip: text;
   letter-spacing: 0.01em;
   line-height: 1;
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 0.15rem;
   white-space: nowrap;
   overflow: hidden;
+}
+
+/* ── Fire emoji — same size feel as ARRRRECHO ── */
+.modal-title-fire {
+  font-size: clamp(1.6rem, 9vw, 2.4rem);
+  line-height: 1;
+  margin: 0 0 var(--space-lg);
 }
 
 /* ── Confirm + link — tight together ─────────────── */
