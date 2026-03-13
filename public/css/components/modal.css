@@ -29,7 +29,7 @@
   background: var(--color-bg-purple);
   border: 1px solid var(--color-card-box-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--space-2xl) var(--space-md);
   max-width: 420px;
   width: 100%;
   text-align: center;
@@ -47,16 +47,17 @@
 
 /* ── ARRRRECHO — fire gradient, as large as possible ── */
 .modal-title {
-  font-size: clamp(1.6rem, 8vw, var(--font-size-3xl));
+  font-size: clamp(1.5rem, 7.5vw, var(--font-size-3xl));
   font-weight: 900;
   background: var(--gradient-fire);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   line-height: 1;
   margin: 0 0 0.3rem;
-  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* ── SVG flame below ARRRRECHO ───────────────────── */
@@ -128,6 +129,7 @@
 /* ── Close button ────────────────────────────────── */
 .modal-close-btn {
   align-self: center;
+  margin-top: var(--space-xl);
   padding: 0.65rem var(--space-xl);
   background: var(--gradient-cyan-blue);
   border-radius: var(--radius-pill);
