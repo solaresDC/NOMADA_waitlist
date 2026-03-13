@@ -58,6 +58,8 @@ function applyTranslations() {
   if (instaGhost.classList.contains('is-visible')) {
     instaGhost.textContent = t(lang, 'ghostInstagram');
   }
+
+  modalCloseBtn.textContent = t(lang, 'successClose');
 }
 
 function updateActiveLangOption() {

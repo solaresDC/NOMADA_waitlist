@@ -60,10 +60,10 @@
   overflow: hidden;
 }
 
-/* ── Fire emoji — same size as ARRRRECHO, sits below ── */
+/* ── Fire emoji — slightly bigger than ARRRRECHO, sits below ── */
 .modal-title-fire {
   display: block;
-  font-size: 0.7em;
+  font-size: 0.85em;
   line-height: 1.2;
   margin-bottom: var(--space-lg);
 }
