@@ -6,7 +6,7 @@ import { CONFIG } from './config/index.js';
 import { t } from './i18n/translations.js';
 import { getLanguage, saveLanguage } from './utils/storage.js';
 import { validateEmail, validateInstagram, normalizeInstagram } from './utils/validation.js';
-import { insertWaitlistEntry, keepAlive } from './utils/neon.js';
+import { insertWaitlistEntry, keepAlive } from './utils/supabase.js';
 
 // ── State ──────────────────────────────────────────
 let lang = getLanguage();
